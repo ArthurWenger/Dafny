@@ -51,7 +51,11 @@ function partialSumList(a: array<int>, i: nat):int
 
 function SumList(a: array<int>):int
 {
-  partialSumList(a, a.Length-1)
+  match a
+  {
+    case h::t => h;
+    case nil => ;
+  }
 }
 
 method ComputeSumList(a: array<int>) returns(s: int)

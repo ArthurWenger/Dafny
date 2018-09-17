@@ -61,9 +61,16 @@ ensures multiset(a[..]) == multiset(old(a[..]))
 
 datatype quadriColors = C1 | C2 | C3 | C4
 
+/*
+  C1 C2 C3 C4
+C1 1  1  1  1  
+C2 0  1  1  1
+C3 0  0  1  1
+C4 0  0  0  1
+*/
 predicate quadBelow(a: quadriColors, b: quadriColors)
 {
-  a == C1 || b == C4 || a == b || (b == C3 && a != C4)
+  a == C1 || b == C4 || a == b || (b == C3 && a == C2)
 }
 
 method quadriFlag(a: array<quadriColors>) 
